@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Wapkiz Generator v2 Demo</title>
+<style>
+body{margin:0;background:linear-gradient(135deg,#eaf4ff,#f8fbff);font:14px Arial;color:#183451}.top{padding:22px;background:linear-gradient(120deg,#0756b3,#3c91ff);color:white;text-align:center}.wrap{max-width:850px;margin:18px auto;padding:16px;background:white;border-radius:14px;box-shadow:0 8px 28px #153d6618}.field{margin:10px 0}input,select,textarea{max-width:100%;padding:9px;border:1px solid #c9d9ec;border-radius:6px;box-sizing:border-box}button{padding:9px 13px;border:0;border-radius:7px;background:#1268d8;color:#fff}.tmdbResult{display:block;width:100%;text-align:left;margin:4px 0;background:#e4efff;color:#143b70}.downloadRow{margin:8px 0;padding:8px;background:#f5f9ff;border-radius:8px}pre{white-space:pre-wrap;word-break:break-word;background:#102238;color:#e9f4ff;padding:12px;border-radius:8px}
+</style><script src="./generator.js"></script></head><body><header class="top"><h1>Wapkiz All-in-One Generator</h1><p>Movie / Web Series starter demo</p></header>
+<div class="wrap"><h2>Movie / Series</h2>
+<form data-wkg-movie>
+<div class="field"><select id="tmdbType"><option value="movie">Movie</option><option value="tv">Web Series</option></select><input id="tmdbSearch" placeholder="Search TMDB"><button type="button" data-tmdb-search>Search</button><div id="tmdbStatus"></div><div id="tmdbResults"></div></div>
+<div class="field"><input name="blog_title" id="blog_title" placeholder="Post title" style="width:100%"></div>
+<div class="field"><input name="genre" id="genre" placeholder="Genre"></div>
+<div class="field"><input name="poster" id="poster" placeholder="Poster URL" style="width:100%"></div>
+<div class="field"><input name="date" id="date" placeholder="Release date"><select name="blog_cat" id="blog_cat"><option>Movies</option><option>Hindi Dubbed</option><option>Web Series</option></select></div>
+<div class="field"><input name="strcast" id="strcast" placeholder="Starcast" style="width:100%"></div>
+<div class="field"><select name="lng" id="lng"><option>Hindi</option><option>English</option></select><input name="dur" id="dur" placeholder="Duration"><select name="qlt" id="qlt"><option>WEB-DL</option><option>WEBRip</option><option>1080p</option></select></div>
+<div class="field"><textarea name="des" id="des" rows="4" placeholder="Description" style="width:100%"></textarea></div>
+<div class="downloadLinks"><div class="downloadRow"><b class="row_title">Link 1</b><br><input name="link" id="link" class="mainDownloadLink" placeholder="URL"><input name="size" id="size" class="mainDownloadSize" placeholder="Size"></div></div><button type="button" data-add-download>Add link</button>
+<textarea name="text" id="text" style="display:none"></textarea><p><button type="submit">Generate Post HTML</button> <button type="button" id="copyOut">Copy HTML</button></p></form>
+<h3>Generated HTML</h3><pre id="out"></pre></div>
+<script>
+document.querySelector('form[data-wkg-movie]').addEventListener('submit',function(e){e.preventDefault();try{document.getElementById('out').textContent=window.WapkizGenerator.buildMoviePost(this)}catch(err){alert(err.message)}});
+document.getElementById('copyOut').addEventListener('click',function(){var s=document.getElementById('out').textContent;navigator.clipboard.writeText(s).then(function(){alert('HTML copied')}).catch(function(){alert('Copy failed; select the output manually.')})});
+</script></body></html>

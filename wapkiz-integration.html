@@ -1,0 +1,42 @@
+<!-- Wapkiz integration reference. Paste into your Wapkiz page and adapt the [blog_form] tags
+     to the exact syntax supported by your Wapkiz setup. -->
+<style>
+.wkg-wrap{max-width:900px;margin:15px auto;padding:16px;background:#f5f9ff;border:1px solid #d5e6ff;border-radius:14px;font:14px Arial,sans-serif}
+.wkg-wrap h2{color:#0756b3}.wkg-wrap .wkg-field{margin:10px 0}.wkg-wrap input,.wkg-wrap select,.wkg-wrap textarea{max-width:100%;padding:8px;border:1px solid #b8cce5;border-radius:6px;box-sizing:border-box}
+.wkg-wrap button,.wkg-wrap input[type=submit]{padding:8px 13px;border:0;border-radius:7px;background:#1268d8;color:#fff;cursor:pointer}
+.wkg-wrap .tmdbResult{display:block;width:100%;text-align:left;margin:4px 0;background:#e4efff;color:#143b70}
+.wkg-wrap .downloadRow{margin:8px 0;padding:8px;background:#fff;border:1px solid #d5e6ff;border-radius:8px}
+</style>
+
+<script src="https://kasturihembrom827.github.io/wapkiz-all-in-one-generator/generator.js"></script>
+
+<div class="wkg-wrap">
+  <h2>Movie Post Generator</h2>
+  <!-- Important: replace the action wrapper and preserve your working Wapkiz [blog_form] syntax. -->
+  [blog_form]ud=/page-movies-post.html||
+  <form method="post" class="niceform" target="wkg_movie_target" data-wkg-movie>
+    <input type="hidden" name="bid" value="movies">
+    <iframe name="wkg_movie_target" style="display:none;width:0;height:0"></iframe>
+    <div class="wkg-field">
+      <label>TMDB type</label>
+      <select id="tmdbType"><option value="movie">Movie</option><option value="tv">Web Series</option></select>
+      <input id="tmdbSearch" type="text" placeholder="Movie / series name">
+      <button type="button" data-tmdb-search>Search TMDB</button>
+      <div id="tmdbStatus"></div><div id="tmdbResults"></div>
+    </div>
+    <div class="wkg-field"><label>Post title</label><br><input name="blog_title" id="blog_title" required></div>
+    <div class="wkg-field"><label>Genre</label><br><input name="genre" id="genre"></div>
+    <div class="wkg-field"><label>Poster URL</label><br><input name="poster" id="poster" required style="width:100%"></div>
+    <div class="wkg-field"><label>Release date</label><br><input name="date" id="date"></div>
+    <div class="wkg-field"><label>Category</label><br><select name="blog_cat" id="blog_cat" type=%category%></select></div>
+    <div class="wkg-field"><label>Starcast</label><br><input name="strcast" id="strcast" style="width:100%"></div>
+    <div class="wkg-field"><label>Language</label><br><select name="lng" id="lng"><option>Hindi</option><option>English</option><option>Hindi, English (Dual Audio)</option><option>Tamil</option><option>Telugu</option><option>Bengali</option></select></div>
+    <div class="wkg-field"><label>Duration</label><br><input name="dur" id="dur"></div>
+    <div class="wkg-field"><label>Quality</label><br><select name="qlt" id="qlt"><option>WEB-DL</option><option>WEBRip</option><option>HDRip</option><option>720p</option><option>1080p</option><option>2160p</option></select></div>
+    <div class="wkg-field"><label>Description</label><br><textarea name="des" id="des" rows="5" style="width:100%"></textarea></div>
+    <div class="wkg-field"><label>Download links</label><div class="downloadLinks" id="movieDownloadLinks"><div class="downloadRow"><b class="row_title">Link 1</b><br><input name="link" class="mainDownloadLink" id="link" placeholder="Download URL"><input name="size" class="mainDownloadSize" id="size" placeholder="Size"></div></div><button type="button" data-add-download>Add more link</button></div>
+    <textarea name="text" id="text" style="display:none"></textarea>
+    <input type="submit" name="blog_submit" value="Post">
+  </form>
+  [/blog_form]
+</div>
