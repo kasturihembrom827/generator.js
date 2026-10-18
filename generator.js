@@ -7,7 +7,7 @@
 
   var WKG = global.WapkizGenerator = global.WapkizGenerator || {};
   WKG.config = {
-    tmdbApiKey: "REPLACE_WITH_TMDB_API_KEY",
+    tmdbApiKey: "241f3ce228196a68cc8d338aedcdc094",
     tmdbImageBase: "https://image.tmdb.org/t/p/w500"
   };
 
